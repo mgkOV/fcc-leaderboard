@@ -1,0 +1,44 @@
+table {
+  width: 80%;
+  margin: 20px auto;
+  border: 2px solid #006400;
+  border-spacing: 0;
+
+  td, th {
+    border: 0;
+    margin: 0;
+  }
+
+  caption {
+    color: #006400;
+  }
+}
+
+table, thead th {
+  text-align: center;
+}
+
+thead tr > th {
+  color: #006400;
+  width: 30%;
+}
+
+thead tr > th:first-child {
+  width: 10%;
+}
+
+tbody tr > td:nth-child(2) {
+  text-align: left;
+
+  a, a:active, a:visited , a:hover {
+    color: #006400;
+  }
+}
+
+.order {
+  cursor: pointer;
+}
+
+.arrow::after {
+  content: " \21E9"
+}

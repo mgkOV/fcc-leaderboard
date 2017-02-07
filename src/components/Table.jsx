@@ -17,9 +17,9 @@ class Table extends React.Component {
       alltime: []
     }
 
-    this.toggleOrder = this.toggleOrder.bind(this);
+    this.renderRecentOrder = this.renderRecentOrder.bind(this);
+    this.renderAlltimeOrder = this.renderAlltimeOrder.bind(this);
     this.renderRow = this.renderRow.bind(this);
-    this.handleClick = this.handleClick.bind(this);
   }
 
 
@@ -45,15 +45,18 @@ class Table extends React.Component {
       });
   }
 
-  toggleOrder(order) {
+  renderRecentOrder(evt) {
     this.setState({
-      order
-    })
+      order: 'recent'
+    });
   }
 
-  handleClick() {
-
+  renderAlltimeOrder(evt) {
+    this.setState({
+      order: 'alltime'
+    });
   }
+
 
   renderRow() {
     if (this.state.order === 'recent') {
@@ -72,13 +75,13 @@ class Table extends React.Component {
   render() {
     return(
       <table>
-        <caption>Leaderboard</caption>
+        <caption>LEADERBOARD</caption>
         <thead>
           <tr>
             <th>#</th>
             <th>Camper Name</th>
-            <th onClick={this.toggleOrder}>Points in past 30 days</th>
-            <th onClick={this.toggleOrder}>All time points</th>
+            <th onClick={this.renderRecentOrder} className={"order" + (this.state.order === "recent"? " arrow" : "")}>Points in past 30 days</th>
+            <th onClick={this.renderAlltimeOrder} className={"order" + (this.state.order === "alltime" ? " arrow" : "")}>All time points</th>
           </tr>
         </thead>
         <tbody>
